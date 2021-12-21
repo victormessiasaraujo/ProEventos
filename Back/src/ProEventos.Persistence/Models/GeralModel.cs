@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using ProEventos.Persistence.Context;
+using ProEventos.Persistence.Contexts;
 using ProEventos.Persistence.Contracts;
 
 namespace ProEventos.Persistence.Models
