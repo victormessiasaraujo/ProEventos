@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Persistence;
 using ProEventos.Domain;
+using ProEventos.Persistence.Context;
 
 namespace ProEventos.API.Controllers
 {
@@ -27,7 +28,7 @@ namespace ProEventos.API.Controllers
         public Evento GetById(int id)
         {
             return _context.Eventos.Where(
-                evento => evento.EventoId == id
+                evento => evento.Id == id
             ).FirstOrDefault();
         }
 
