@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ProEventos.Domain
+namespace ProEventos.Domain.Views
 {
     public class Evento
     {

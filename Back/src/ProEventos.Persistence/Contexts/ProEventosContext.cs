@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ProEventos.Domain;
+using ProEventos.Domain.Views;
 
 namespace ProEventos.Persistence.Contexts
 {

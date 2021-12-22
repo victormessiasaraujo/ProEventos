@@ -1,13 +1,13 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ProEventos.Domain;
+using ProEventos.Domain.Views;
 using ProEventos.Persistence.Contexts;
 using ProEventos.Persistence.Contracts;
 
 namespace ProEventos.Persistence.Models
 {
-    public class EventoModel : IEvento
+    public class EventoModel : IEventoPersist
     {
         public ProEventosContext _context { get; }
         public EventoModel(ProEventosContext context)

@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using ProEventos.Domain;
+using ProEventos.Domain.Views;
 
 namespace ProEventos.Persistence.Contracts
 {
-    public interface IEvento
+    public interface IEventoPersist
     {
         Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes);
         Task<Evento[]> GetAllEventosAsync(bool includePalestrantes);

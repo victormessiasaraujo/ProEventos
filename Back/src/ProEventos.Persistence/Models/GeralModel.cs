@@ -4,7 +4,7 @@ using ProEventos.Persistence.Contracts;
 
 namespace ProEventos.Persistence.Models
 {
-    public class GeralModel : IGeral
+    public class GeralModel : IGeralPersist
     {
         public ProEventosContext _context { get; }
         public GeralModel(ProEventosContext context)
