@@ -1,6 +1,6 @@
 using System;
 
-namespace ProEventos.Domain.Views
+namespace ProEventos.Domain
 {
     public class Lote
     {

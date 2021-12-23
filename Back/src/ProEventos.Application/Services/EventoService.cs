@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using ProEventos.Application.Contracts;
-using ProEventos.Domain.Views;
+using ProEventos.Domain;
 using ProEventos.Persistence.Contracts;
 
 namespace ProEventos.Application.Services
