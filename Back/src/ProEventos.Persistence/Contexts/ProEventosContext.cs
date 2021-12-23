@@ -16,7 +16,7 @@ namespace ProEventos.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PalestranteEvento>()
-                .HasKey(PE => new {PE.EventoId, PE.Id});
+                .HasKey(PE => new {PE.EventoId, PE.PalestranteId});
         }
     }
 }
