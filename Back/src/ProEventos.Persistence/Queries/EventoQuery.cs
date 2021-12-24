@@ -13,10 +13,11 @@ namespace ProEventos.Persistence.Queries
         public EventoQuery(ProEventosContext context)
         {
             this._context = context;
+            //this._context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
         public async Task<Evento[]> GetAllEventosAsync(bool includePalestrantes  = false)
         {
-            IQueryable<Evento> query = _context.Eventos
+            IQueryable<Evento> query = _context.Eventos.AsNoTracking()
                 .Include(e => e.Lotes)
                 .Include(e => e.RedesSociais);
 
@@ -31,7 +32,7 @@ namespace ProEventos.Persistence.Queries
         }
         public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes = false)
         {
-            IQueryable<Evento> query = _context.Eventos
+            IQueryable<Evento> query = _context.Eventos.AsNoTracking()
                 .Include(e => e.Lotes)
                 .Include(e => e.RedesSociais);
 
@@ -47,7 +48,7 @@ namespace ProEventos.Persistence.Queries
         }
         public async Task<Evento> GetEventoByIdAsync(int id, bool includePalestrantes = false)
         {
-            IQueryable<Evento> query = _context.Eventos
+            IQueryable<Evento> query = _context.Eventos.AsNoTracking()
                 .Include(e => e.Lotes)
                 .Include(e => e.RedesSociais);
 
