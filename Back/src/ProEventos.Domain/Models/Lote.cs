@@ -1,10 +1,10 @@
 using System;
 
-namespace ProEventos.Domain
+namespace ProEventos.Domain.Models
 {
     public class Lote
     {
-        public int Id { get; set; } 
+        public int LoteId { get; set; } 
         public string Nome { get; set; }
         public decimal Preco { get; set; }
         public DateTime? DataInicio { get; set; }   

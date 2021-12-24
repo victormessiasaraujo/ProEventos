@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using ProEventos.Domain;
+using ProEventos.Domain.Models;
 
 namespace ProEventos.Persistence.Contracts
 {
-    public interface IPalestrantePersist
+    public interface IPalestranteQuery
     {
         Task<Palestrante[]> GetAllPalestrantesByNomeAsync(string nome, bool includeEventos);
         Task<Palestrante[]> GetAllPalestrantesAsync(bool includeEventos);

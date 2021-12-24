@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace ProEventos.Persistence.Contracts
 {
-    public interface IGeralPersist
+    public interface IGeralQuery
     {
         void Add<T>(T entity) where T: class;
         void Upadte<T>(T entity) where T: class;

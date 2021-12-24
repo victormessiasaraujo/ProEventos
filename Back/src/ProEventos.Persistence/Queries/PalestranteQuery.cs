@@ -1,16 +1,16 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ProEventos.Domain;
+using ProEventos.Domain.Models;
 using ProEventos.Persistence.Contexts;
 using ProEventos.Persistence.Contracts;
 
 namespace ProEventos.Persistence.Models
 {
-    public class PalestranteModel : IPalestrantePersist
+    public class PalestranteQuery : IPalestranteQuery
     {
         public ProEventosContext _context { get; }
-        public PalestranteModel(ProEventosContext context)
+        public PalestranteQuery(ProEventosContext context)
         {
             this._context = context;
         }
@@ -26,7 +26,7 @@ namespace ProEventos.Persistence.Models
                     .ThenInclude(e => e.Evento);
             }
 
-            query = query.OrderBy(p => p.Id);
+            query = query.OrderBy(p => p.PalestranteId);
 
             return await query.ToArrayAsync();
         }
@@ -41,12 +41,12 @@ namespace ProEventos.Persistence.Models
                     .ThenInclude(e => e.Evento);
             }
 
-            query = query.OrderBy(p => p.Id)
+            query = query.OrderBy(p => p.PalestranteId)
                 .Where(p => p.Nome.ToLower().Contains(nome.ToLower()));
 
             return await query.ToArrayAsync();
         }
-        public async Task<Palestrante> GetPalestranteByIdAsync(int palestranteId, bool includeEventos = false)
+        public async Task<Palestrante> GetPalestranteByIdAsync(int id, bool includeEventos = false)
         {
             IQueryable<Palestrante> query = _context.Palestrantes
                 .Include(r => r.RedesSociais);
@@ -57,8 +57,8 @@ namespace ProEventos.Persistence.Models
                     .ThenInclude(e => e.Evento);
             }
 
-            query = query.OrderBy(p => p.Id)
-                .Where(p => p.Id == palestranteId);
+            query = query.OrderBy(p => p.PalestranteId)
+                .Where(p => p.PalestranteId == id);
 
             return await query.FirstOrDefaultAsync();
         }

@@ -2,12 +2,12 @@ using System.Threading.Tasks;
 using ProEventos.Persistence.Contexts;
 using ProEventos.Persistence.Contracts;
 
-namespace ProEventos.Persistence.Models
+namespace ProEventos.Persistence.Queries
 {
-    public class GeralModel : IGeralPersist
+    public class GeralQuery : IGeralQuery
     {
         public ProEventosContext _context { get; }
-        public GeralModel(ProEventosContext context)
+        public GeralQuery(ProEventosContext context)
         {
             this._context = context;
         }

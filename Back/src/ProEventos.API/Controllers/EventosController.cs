@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Application.Contracts;
-using ProEventos.Domain;
+using ProEventos.Domain.Models;
 
 namespace ProEventos.API.Controllers
 {
@@ -74,7 +74,7 @@ namespace ProEventos.API.Controllers
         {
             try
             {
-                 var evento = await _eventoService.AddEventos(model);
+                 var evento = await _eventoService.AddEvento(model);
 
                  if(evento == null) return BadRequest("Erro ao tentar adicionar evento.");
 
@@ -91,7 +91,7 @@ namespace ProEventos.API.Controllers
         {
             try
             {
-                 var evento = await _eventoService.UpdateEventos(id, model);
+                 var evento = await _eventoService.UpdateEvento(id, model);
 
                  if(evento == null) return BadRequest("Erro ao tentar atualizar evento.");
 

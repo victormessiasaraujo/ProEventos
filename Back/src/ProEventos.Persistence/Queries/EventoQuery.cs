@@ -1,16 +1,16 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ProEventos.Domain;
+using ProEventos.Domain.Models;
 using ProEventos.Persistence.Contexts;
 using ProEventos.Persistence.Contracts;
 
-namespace ProEventos.Persistence.Models
+namespace ProEventos.Persistence.Queries
 {
-    public class EventoModel : IEventoPersist
+    public class EventoQuery : IEventoQuery
     {
         public ProEventosContext _context { get; }
-        public EventoModel(ProEventosContext context)
+        public EventoQuery(ProEventosContext context)
         {
             this._context = context;
         }
@@ -45,7 +45,7 @@ namespace ProEventos.Persistence.Models
 
             return await query.ToArrayAsync();
         }
-        public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrantes = false)
+        public async Task<Evento> GetEventoByIdAsync(int id, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _context.Eventos
                 .Include(e => e.Lotes)
@@ -57,7 +57,7 @@ namespace ProEventos.Persistence.Models
             }
 
             query = query.OrderBy(e => e.EventoId)
-                         .Where(e => e.EventoId == eventoId);
+                         .Where(e => e.EventoId == id);
 
             return await query.FirstAsync();
         }

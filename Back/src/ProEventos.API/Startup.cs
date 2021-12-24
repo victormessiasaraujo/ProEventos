@@ -9,7 +9,7 @@ using ProEventos.Application.Contracts;
 using ProEventos.Application.Services;
 using ProEventos.Persistence.Contexts;
 using ProEventos.Persistence.Contracts;
-using ProEventos.Persistence.Models;
+using ProEventos.Persistence.Queries;
 
 namespace ProEventos.API
 {
@@ -32,8 +32,8 @@ namespace ProEventos.API
             services.AddControllers();
 
             services.AddScoped<IEventoService, EventoService>();
-            services.AddScoped<IGeralPersist, GeralModel>();
-            services.AddScoped<IEventoPersist, EventoModel>();
+            services.AddScoped<IGeralQuery, GeralQuery>();
+            services.AddScoped<IEventoQuery, EventoQuery>();
             
             services.AddCors();
             services.AddSwaggerGen(c =>
