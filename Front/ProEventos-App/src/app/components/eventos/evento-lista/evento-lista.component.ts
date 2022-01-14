@@ -4,6 +4,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from 'src/app/models/Evento';
 import { EventoService } from 'src/app/services/evento.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evento-lista',
@@ -17,8 +18,11 @@ export class EventoListaComponent implements OnInit {
     private eventoService: EventoService,
     private modalService: BsModalService,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService
-    ){ }
+    private spinner: NgxSpinnerService,
+    private router: Router
+    ){
+
+    }
 
   modalRef: BsModalRef | undefined;
   public eventos: Evento[] = [];
@@ -92,4 +96,7 @@ export class EventoListaComponent implements OnInit {
     this.modalRef?.hide();
   }
 
+  detalheEvento(id: number) : void{
+    this.router.navigate([`eventos/detalhe/${id}`]);
+  }
 }
